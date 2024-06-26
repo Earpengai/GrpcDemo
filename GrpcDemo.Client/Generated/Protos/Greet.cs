@@ -24,15 +24,14 @@ namespace GrpcDemo {
     static GreetReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJQcm90b3MvZ3JlZXQucHJvdG8SBWdyZWV0Ii0KDEhlbGxvUmVxdWVzdBIM",
-            "CgRuYW1lGAEgASgJEg8KB2FkZHJlc3MYAiABKAkiHQoKSGVsbG9SZXBseRIP",
-            "CgdtZXNzYWdlGAEgASgJMj0KB0dyZWV0ZXISMgoIU2F5SGVsbG8SEy5ncmVl",
-            "dC5IZWxsb1JlcXVlc3QaES5ncmVldC5IZWxsb1JlcGx5QguqAghHcnBjRGVt",
-            "b2IGcHJvdG8z"));
+            "ChJQcm90b3MvZ3JlZXQucHJvdG8SBWdyZWV0IhwKDEhlbGxvUmVxdWVzdBIM",
+            "CgRuYW1lGAEgASgJIh0KCkhlbGxvUmVwbHkSDwoHbWVzc2FnZRgBIAEoCTI9",
+            "CgdHcmVldGVyEjIKCFNheUhlbGxvEhMuZ3JlZXQuSGVsbG9SZXF1ZXN0GhEu",
+            "Z3JlZXQuSGVsbG9SZXBseUILqgIIR3JwY0RlbW9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HelloRequest), global::GrpcDemo.HelloRequest.Parser, new[]{ "Name", "Address" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HelloRequest), global::GrpcDemo.HelloRequest.Parser, new[]{ "Name" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HelloReply), global::GrpcDemo.HelloReply.Parser, new[]{ "Message" }, null, null, null, null)
           }));
     }
@@ -78,7 +77,6 @@ namespace GrpcDemo {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public HelloRequest(HelloRequest other) : this() {
       name_ = other.name_;
-      address_ = other.address_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -100,18 +98,6 @@ namespace GrpcDemo {
       }
     }
 
-    /// <summary>Field number for the "address" field.</summary>
-    public const int AddressFieldNumber = 2;
-    private string address_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Address {
-      get { return address_; }
-      set {
-        address_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -128,7 +114,6 @@ namespace GrpcDemo {
         return true;
       }
       if (Name != other.Name) return false;
-      if (Address != other.Address) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -137,7 +122,6 @@ namespace GrpcDemo {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Address.Length != 0) hash ^= Address.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -160,10 +144,6 @@ namespace GrpcDemo {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Address.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Address);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -178,10 +158,6 @@ namespace GrpcDemo {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Address.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Address);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -194,9 +170,6 @@ namespace GrpcDemo {
       int size = 0;
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Address.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Address);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -212,9 +185,6 @@ namespace GrpcDemo {
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
-      }
-      if (other.Address.Length != 0) {
-        Address = other.Address;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -235,10 +205,6 @@ namespace GrpcDemo {
             Name = input.ReadString();
             break;
           }
-          case 18: {
-            Address = input.ReadString();
-            break;
-          }
         }
       }
     #endif
@@ -256,10 +222,6 @@ namespace GrpcDemo {
             break;
           case 10: {
             Name = input.ReadString();
-            break;
-          }
-          case 18: {
-            Address = input.ReadString();
             break;
           }
         }

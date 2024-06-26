@@ -1,4 +1,3 @@
-using GrpcDemo;
 using GrpcDemo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
