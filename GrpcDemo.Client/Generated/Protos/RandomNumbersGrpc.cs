@@ -49,6 +49,10 @@ namespace GrpcDemo {
     static readonly grpc::Marshaller<global::GrpcDemo.GetRandomNumbersRequest> __Marshaller_greet_GetRandomNumbersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcDemo.GetRandomNumbersRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcDemo.GetRandomNumbersResponse> __Marshaller_greet_GetRandomNumbersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcDemo.GetRandomNumbersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcDemo.SendRandomNumbersRequest> __Marshaller_greet_SendRandomNumbersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcDemo.SendRandomNumbersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcDemo.SendRandomNumbersResponse> __Marshaller_greet_SendRandomNumbersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcDemo.SendRandomNumbersResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcDemo.GetRandomNumbersRequest, global::GrpcDemo.GetRandomNumbersResponse> __Method_GetRandomNumbers = new grpc::Method<global::GrpcDemo.GetRandomNumbersRequest, global::GrpcDemo.GetRandomNumbersResponse>(
@@ -57,6 +61,14 @@ namespace GrpcDemo {
         "GetRandomNumbers",
         __Marshaller_greet_GetRandomNumbersRequest,
         __Marshaller_greet_GetRandomNumbersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcDemo.SendRandomNumbersRequest, global::GrpcDemo.SendRandomNumbersResponse> __Method_SendRandomNumbers = new grpc::Method<global::GrpcDemo.SendRandomNumbersRequest, global::GrpcDemo.SendRandomNumbersResponse>(
+        grpc::MethodType.ClientStreaming,
+        __ServiceName,
+        "SendRandomNumbers",
+        __Marshaller_greet_SendRandomNumbersRequest,
+        __Marshaller_greet_SendRandomNumbersResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -100,6 +112,16 @@ namespace GrpcDemo {
       public virtual grpc::AsyncServerStreamingCall<global::GrpcDemo.GetRandomNumbersResponse> GetRandomNumbers(global::GrpcDemo.GetRandomNumbersRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetRandomNumbers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncClientStreamingCall<global::GrpcDemo.SendRandomNumbersRequest, global::GrpcDemo.SendRandomNumbersResponse> SendRandomNumbers(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SendRandomNumbers(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncClientStreamingCall<global::GrpcDemo.SendRandomNumbersRequest, global::GrpcDemo.SendRandomNumbersResponse> SendRandomNumbers(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncClientStreamingCall(__Method_SendRandomNumbers, null, options);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

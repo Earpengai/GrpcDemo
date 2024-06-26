@@ -49,6 +49,10 @@ namespace GrpcDemo {
     static readonly grpc::Marshaller<global::GrpcDemo.GetRandomNumbersRequest> __Marshaller_greet_GetRandomNumbersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcDemo.GetRandomNumbersRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcDemo.GetRandomNumbersResponse> __Marshaller_greet_GetRandomNumbersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcDemo.GetRandomNumbersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcDemo.SendRandomNumbersRequest> __Marshaller_greet_SendRandomNumbersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcDemo.SendRandomNumbersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcDemo.SendRandomNumbersResponse> __Marshaller_greet_SendRandomNumbersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcDemo.SendRandomNumbersResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcDemo.GetRandomNumbersRequest, global::GrpcDemo.GetRandomNumbersResponse> __Method_GetRandomNumbers = new grpc::Method<global::GrpcDemo.GetRandomNumbersRequest, global::GrpcDemo.GetRandomNumbersResponse>(
@@ -57,6 +61,14 @@ namespace GrpcDemo {
         "GetRandomNumbers",
         __Marshaller_greet_GetRandomNumbersRequest,
         __Marshaller_greet_GetRandomNumbersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcDemo.SendRandomNumbersRequest, global::GrpcDemo.SendRandomNumbersResponse> __Method_SendRandomNumbers = new grpc::Method<global::GrpcDemo.SendRandomNumbersRequest, global::GrpcDemo.SendRandomNumbersResponse>(
+        grpc::MethodType.ClientStreaming,
+        __ServiceName,
+        "SendRandomNumbers",
+        __Marshaller_greet_SendRandomNumbersRequest,
+        __Marshaller_greet_SendRandomNumbersResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -74,6 +86,12 @@ namespace GrpcDemo {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GrpcDemo.SendRandomNumbersResponse> SendRandomNumbers(grpc::IAsyncStreamReader<global::GrpcDemo.SendRandomNumbersRequest> requestStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -82,7 +100,8 @@ namespace GrpcDemo {
     public static grpc::ServerServiceDefinition BindService(RandomNumbersBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetRandomNumbers, serviceImpl.GetRandomNumbers).Build();
+          .AddMethod(__Method_GetRandomNumbers, serviceImpl.GetRandomNumbers)
+          .AddMethod(__Method_SendRandomNumbers, serviceImpl.SendRandomNumbers).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -93,6 +112,7 @@ namespace GrpcDemo {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, RandomNumbersBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_GetRandomNumbers, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::GrpcDemo.GetRandomNumbersRequest, global::GrpcDemo.GetRandomNumbersResponse>(serviceImpl.GetRandomNumbers));
+      serviceBinder.AddMethod(__Method_SendRandomNumbers, serviceImpl == null ? null : new grpc::ClientStreamingServerMethod<global::GrpcDemo.SendRandomNumbersRequest, global::GrpcDemo.SendRandomNumbersResponse>(serviceImpl.SendRandomNumbers));
     }
 
   }
