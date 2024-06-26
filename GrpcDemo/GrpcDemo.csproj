@@ -10,6 +10,7 @@
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" OutputDir="Generated" />
     <Protobuf Include="Protos\invoice.proto" GrpcServices="Server" OutputDir="Generated" />
     <Protobuf Include="Protos\random_numbers.proto" GrpcServices="Server" OutputDir="Generated" />
+    <Protobuf Include="Protos\chat.proto" GrpcServices="Server" OutputDir="Generated" />
   </ItemGroup>
 
   <ItemGroup>
